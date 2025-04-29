@@ -27,6 +27,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Start server in background
+        run: |
+          npm start &
+          sleep 3  # Give it time to start
+
+      - name: Test server is running
+        run: curl http://localhost:3000/data
+
+
       # - name: Run lint (optional, if using ESLint)
       #   run: npm run lint
       #   continue-on-error: true  # Optional: avoid breaking the build for lint errors
