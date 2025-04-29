@@ -11,9 +11,9 @@ app.use(express.json());
 // Fetch data from fake API
 app.get('/data', async (req, res) => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+    const response = await fetch('https://fakeapi.net/users');
     const data = await response.json();
-    res.json(data);
+    res.send(data);
   } catch (error) {
     console.error('Fetch error:', error);
     res.status(500).send('Error fetching data');
